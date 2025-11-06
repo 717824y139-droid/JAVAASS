@@ -1,0 +1,23 @@
+package hotelreservation;
+public class Room {
+ private int roomNumber;
+ private String type;
+ private double pricePerNight;
+ private boolean available;
+ public Room(int roomNumber, String type, double pricePerNight) {
+ this.roomNumber = roomNumber;
+ this.type = type;
+ this.pricePerNight = pricePerNight;
+ this.available = true;
+ }
+ public boolean isAvailable() { return available; }
+ public void book() { this.available = false; }
+ public void cancel() { this.available = true; }
+ public double getPrice() { return pricePerNight; }
+ public int getRoomNumber() { return roomNumber; }
+ @Override
+ public String toString() {
+ return "Room " + roomNumber + " [" + type + "] - $" + pricePerNight + " per night - " +
+ (available ? "Available" : "Booked");
+ }
+}
